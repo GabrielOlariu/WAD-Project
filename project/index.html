@@ -75,9 +75,65 @@
 					</div> 
 				</div>       	  
 				<div class="top-searchbar">
-					<form>
-						<input type="text" /><iput type="submit" value="" />
-					</form>
+					<form action="http://www.rottentomatoes.com/search/" target="_blank">
+		                <input id="autocomplete" type="text" placeholder="Movie name" name="search"><input type="submit" value="" />
+		                <span class="loading"></span>
+	                </form>
+	   	<script>
+		/*
+		 * jQuery UI Autocomplete: Custom HTML in Dropdown
+		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
+		 */
+		$(function() {
+			$("#autocomplete").autocomplete({
+				delay: 500,
+				minLength: 3,
+				source: function(request, response) {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "a63f02343a64b09623576785234aa40a",
+						q: request.term,
+						page_limit: 10
+					}, function(data) {
+						// data is an array of objects and must be transformed for autocomplete to use
+						var array = data.error ? [] : $.map(data.movies, function(m) {
+							return {
+								label: m.title,
+								year: m.year,
+								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
+								rating: m.ratings.critics_score === -1 ? null : m.ratings.critics_score,
+								icon: m.ratings.critics_score === -1 ? null : m.ratings.critics_rating.toLowerCase().replace(/\s/g, "_"),
+								url: m.links.alternate
+							};
+						});
+						response(array);
+					});
+				},
+				focus: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+				},
+				select: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+					// navigate to the selected item's url
+					window.open(ui.item.url);
+				}
+			}).data("ui-autocomplete")._renderItem = function(ul, item) {
+				var $a = $("<a></a>");
+				$("<span class='m-year'></span>").text(item.year).appendTo($a);
+				$("<span class='m-name'></span>").text(item.label).appendTo($a);
+				$("<span class='m-cast'></span>").text(item.cast).appendTo($a);
+				if (item.rating && item.icon) {
+					var $tm = $("<span class='rt-main'>Rotten Tomatoes<sup>&reg;</sup> Score<br>Tomatometer<sup>&reg;</sup><br></span>").appendTo($a);
+					$("<span class='rt-ico'></span>").addClass(item.icon).appendTo($tm);
+					$("<span class='rt-val'></span>").text(item.rating + "%").appendTo($tm);
+					$("<span class='rt-bar'></span>").addClass(item.icon).appendTo($tm).append("<span style='width: " + item.rating + "%;'></span>");
+				}
+				return $("<li></li>").append($a).appendTo(ul);
+			};
+		});
+	</script>
 				</div>
 				<div class="userinfo">
 					<div class="user">
