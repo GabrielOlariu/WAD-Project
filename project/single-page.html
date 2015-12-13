@@ -6,12 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="images/fav-icon.png" />
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-		</script>
 		<!----webfonts---->
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 		<!----//webfonts---->
 		<!---start-click-drop-down-menu---->
 		<script src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="script.js"></script>
         <!----start-dropdown-->
          <script type="text/javascript">
 			var $ = jQuery.noConflict();
@@ -95,9 +95,8 @@
 								    </div>
 								    <div class="artical-links">
 		  						 	<ul>
-		  						 		<li><a href="#"><img src="images/blog-icon2.png" title="Admin"><span>admin</span></a></li>
-		  						 		<li><a href="#"><img src="images/blog-icon3.png" title="Comments"><span>No comments</span></a></li>
-		  						 		<li><a href="#"><img src="images/blog-icon4.png" title="Lables"><span>View posts</span></a></li>
+
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span>View posts</span></button></li>
 		  						 	</ul>
 		  						 </div>
 		  						 <div class="share-artical">
@@ -114,13 +113,63 @@
 							<div class="comment-section">
 				<div class="grids_of_2">
 					<h2>Comments</h2>
+				    
+					<div id="result">This is a div. This will be updated with Contents from XML file by jQuery AJAX. </div>
+
+                   <script type="text/javascript">
+                     function commFunction() {
+                      function ajaxRequest(){
+                      var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]; //activeX versions to check for in IE
+                      if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+                      for (var i=0; i<activexmodes.length; i++){
+                         try{
+                           return new ActiveXObject(activexmodes[i])
+                             }
+                           catch(e){
+                            //suppress error
+                                }
+                             }
+                            }
+                         else if (window.XMLHttpRequest) // if Mozilla, Safari etc
+                         return new XMLHttpRequest();
+                         else
+                         return false;
+                          }
+
+                        var mygetrequest=new ajaxRequest();
+                       if (mygetrequest.overrideMimeType)
+                            mygetrequest.overrideMimeType('text/xml');
+                          mygetrequest.onreadystatechange=function(){
+                       if (mygetrequest.readyState==4){
+                      if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
+                      var xmldata=mygetrequest.responseXML; //retrieve result as an XML object
+                      var rssentries=xmldata.getElementsByTagName("film1");
+                      var output='<table>';
+                      for (var i=0; i<rssentries.length; i++){
+                      output+='<tr>';
+                       output+='<td>'+rssentries[i].getElementsByTagName('name')[0].firstChild.nodeValue+'</td>';
+                      output+='<td>'+rssentries[i].getElementsByTagName('review')[0].firstChild.nodeValue+'</td>';
+                      output+='</tr>';
+                       }
+                      output+='</table>';
+                      document.getElementById("result").innerHTML=output;
+                       }
+                       else{
+                       alert("An error has occured making the request");
+                     }
+                    }
+                   };
+
+                   mygetrequest.open("GET", "comments.xml", true);
+                   mygetrequest.send(null);
+                  }
+                  </script>
 					<div class="grid1_of_2">
 						<div class="grid_img">
-							<a href=""><img src="images/pic10.jpg" alt=""></a>
+							
 						</div>
 						<div class="grid_text">
-							<h4 class="style1 list"><a href="#">Uku Mason</a></h4>
-							<h3 class="style">march 2, 2013 - 12.50 AM</h3>
+						
 							<p class="para top"> </p>
 							<a href="" class="btn1">Click to Reply</a>
 						</div>
