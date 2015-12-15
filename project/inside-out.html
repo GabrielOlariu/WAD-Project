@@ -200,7 +200,7 @@
                        if (mygetrequest.readyState==4){
                       if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
                       var xmldata=mygetrequest.responseXML; //retrieve result as an XML object
-                      var rssentries=xmldata.getElementsByTagName("film1");
+                      var rssentries=xmldata.getElementsByTagName("insideout");
                       var output='<table height="100px" style="border:1px solid;">';
                       for (var i=0; i<rssentries.length; i++){
                       output+='<tr>';
