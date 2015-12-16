@@ -80,6 +80,42 @@ Any changes made in the xml file should be posted as comments.</review>
 <review>The main problem with The Man From U.N.C.L.E. is its tone. We can't take this stuff seriously, yet Ritchie misses all sorts of opportunities to make the movie fun. The result isn't particularly satisfying as either adventure or comedy.</review>
 </manfromuncle>
 
+<bridgeOfSpies>
+<name>Rich Clinche</name>
+<email>gabriel@example.com</email>
+<review>Steven Spielberg takes on the Cold War with a stately, sentimental thriller that gurgles along with quiet intensity, only occasionally finding a real spark of energy.</review>
+</bridgeOfSpies>
+
+<bridgeOfSpies>
+<name>Rob Carnevale</name>
+<email>gabriel@example.com</email>
+<review>Steven Spielberg uncovers another important chapter in American [and world] history with spy drama Bridge of Spies, which grips by virtue of its continued relevance today and thanks to two riveting performances from Tom Hanks and Mark Rylance.</review>
+</bridgeOfSpies>
+
+<bridgeOfSpies>
+<name>Allan Hunter</name>
+<email>gabriel@example.com</email>
+<review>A mixture of thriller, courtroom drama and history lesson, Bridge Of Spies makes for a satisfying, entertaining movie. Jimmy Stewart and Gary Cooper would be proud.</review>
+</bridgeOfSpies>
+
+<revenant>
+<name>David Edelstein</name>
+<email>gabriel@example.com</email>
+<review>I think The Revenant is, on the whole, pain without gain, but it's certainly a tour de force - literally, a feat of strength.</review>
+</revenant>
+
+<revenant>
+<name>Devin Haraci</name>
+<email>gabriel@example.com</email>
+<review>The Revenant is just the latest gorgeous, hollow and largely pointless work from a director who has convinced so many that his stark nudity is actually a sumptuous set of clothes.</review>
+</revenant>
+
+<revenant>
+<name>Stephen Rebello</name>
+<email>gabriel@example.com</email>
+<review>The Revenant is a stunning, impeccably made, hauntingly poetic western. It's also long, immersive, demanding, spooky and metaphysical.</review>
+</revenant>
+
 <item>
 <name>Gabriel Olariu</name>
 <email>gabriel@example.com</email>

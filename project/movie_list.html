@@ -197,6 +197,104 @@
         </table>
       </div>
     </div>
+    
+		    <div class="artical-links">
+		  						 	<ul>
+
+		  						 		<li><button onclick="commFunction()"><img src="images/blog-icon4.png" title="Lables"><span>View list of movies</span></button></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="share-artical">
+		  						 	<ul>
+		  						 		<li><a href="#"><img src="images/facebooks.png" title="facebook">Facebook</a></li>
+		  						 		<li><a href="#"><img src="images/twiter.png" title="Twitter">Twiiter</a></li>
+		  						 		<li><a href="#"><img src="images/google+.png" title="google+">Google+</a></li>
+		  						 		<li><a href="#"><img src="images/rss.png" title="rss">Rss</a></li>
+		  						 	</ul>
+		  						 </div>
+		  						 <div class="clear"> </div>
+							<!---start-comments-section-->
+							
+							<div class="comment-section">
+				<div class="grids_of_2">
+					<h2>Top Movies</h2>
+				    
+					<div id="result">Click on Movie List to see a list of the most popular movies of 2015. </div>
+
+                   <script type="text/javascript">
+                     function commFunction() {
+                      function ajaxRequest(){
+                      var activexmodes=["Msxml2.XMLHTTP", "Microsoft.XMLHTTP"]; //activeX versions to check for in IE
+                      if (window.ActiveXObject){ //Test for support for ActiveXObject in IE first (as XMLHttpRequest in IE7 is broken)
+                      for (var i=0; i<activexmodes.length; i++){
+                         try{
+                           return new ActiveXObject(activexmodes[i])
+                             }
+                           catch(e){
+                            //suppress error
+                                }
+                             }
+                            }
+                         else if (window.XMLHttpRequest) // if Mozilla, Safari etc
+                         return new XMLHttpRequest();
+                         else
+                         return false;
+                          }
+
+                        var mygetrequest=new ajaxRequest();
+                       if (mygetrequest.overrideMimeType)
+                            mygetrequest.overrideMimeType('text/xml');
+                          mygetrequest.onreadystatechange=function(){
+                       if (mygetrequest.readyState==4){
+                      if (mygetrequest.status==200 || window.location.href.indexOf("http")==-1){
+                      var xmldata=mygetrequest.responseXML; //retrieve result as an XML object
+                      var rssentries=xmldata.getElementsByTagName("movie");
+                      var output='<table height="100px" style="border:1px solid;">';
+                      for (var i=0; i<rssentries.length; i++){
+                      output+='<tr>';
+                       output+='<td width="65" style="border: 1px solid black; padding:15px; text-align:left;">'+rssentries[i].getElementsByTagName('Movie_Name')[0].firstChild.nodeValue+'</td>';
+                      output+='<td style="border: 1px solid black; padding:25px; text-align:left;">'+rssentries[i].getElementsByTagName('Genre')[0].firstChild.nodeValue+'</td>';
+                      output+='<td style="border: 1px solid black; padding:25px; text-align:left;">'+rssentries[i].getElementsByTagName('Comments')[0].firstChild.nodeValue+'</td>';
+                      output+='</tr>';
+                       }
+                      output+='</table>';
+                      document.getElementById("result").innerHTML=output;
+                       }
+                       else{
+                       alert("An error has occured making the request");
+                     }
+                    }
+                   };
+
+                   mygetrequest.open("GET", "movies.xml", true);
+                   mygetrequest.send(null);
+                  }
+                  </script>
+                  </div>
+                  <br></br><br></br><br></br>
+                  <div class="artical-commentbox">
+						 	<h2>Leave a Comment</h2>
+				  			<div class="table-form">
+								<form action="#" method="post" name="post_comment">
+									<div>
+										<label>Name<span>*</span></label>
+										<input type="text" value=" ">
+									</div>
+									<div>
+										<label>Email<span>*</span></label>
+										<input type="text" value=" ">
+									</div>
+									<div>
+										<label>Your Comment<span>*</span></label>
+										<textarea> </textarea>	
+									</div>
+								</form>
+								<input type="submit" value="submit">
+									
+							</div>
+							<div class="clear"> </div>
+				  		</div>
+				  		</div>
 			        
 			    </div>
 			</div>
