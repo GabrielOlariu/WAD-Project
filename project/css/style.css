@@ -530,6 +530,11 @@ p.para {
 .table-form div {
 	margin: 1em 0;
 }
+    table, th, td {
+      border-collapse: collapse;
+      border: 1px solid black;
+      text-align:center;
+    }
 /*----//End-comment-section---*/
 /*  Contact Form  */
 .contact-info {

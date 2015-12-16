@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movies>
+	<movie>
+		<User_code>AF</User_code>
+		<Movie_Name>Afghanistan</Movie_Name>
+		<Comments>Kabul</Comments>
+		<Genre>93</Genre>
+	</movie>
+	<movie>
+		<User_code>AF</User_code>
+		<Movie_Name>Afghanistan</Movie_Name>
+		<Comments>Kabul</Comments>
+		<Genre>93</Genre>
+	</movie>
+	<movie>
+		<User_code>AF</User_code>
+		<Movie_Name>Afghanistan</Movie_Name>
+		<Comments>Kabul</Comments>
+		<Genre>93</Genre>
+	</movie>
+	<movie>
+		<User_code>AF</User_code>
+		<Movie_Name>Afghanistan</Movie_Name>
+		<Comments>Kabul</Comments>
+		<Genre>93</Genre>
+	</movie>
+	<movie>
+		<User_code>AF</User_code>
+		<Movie_Name>Afghanistan</Movie_Name>
+		<Comments>Kabul</Comments>
+		<Genre>93</Genre>
+	</movie>
+
+</movies>
