@@ -53,7 +53,7 @@ router.post('/post/json', function(req, res) {
     var JSONparsed = JSON.parse(JSONfile);
 
     // Add a new record into country array within the JSON file    
-    JSONparsed.country.push(obj);
+    JSONparsed.movie.push(obj);
 
     // Beautify the resulting JSON file
     var JSONformated = JSON.stringify(JSONparsed, null, 4);

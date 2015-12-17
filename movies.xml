@@ -9,7 +9,7 @@
 	<movie>
 		<User_code>VAL</User_code>
 		<Movie_Name>The Revenant</Movie_Name>
-		<Comments>The Revenant is among the truly great films of 2015, and is Alejandro GonzÃ¡lez IÃ±Ã¡rritu's greatest film... by the end you share in the characters' exhaustion of heart and soul, and perhaps in their glimpse at something infinite, beautiful, and terrifying.</Comments>
+		<Comments>The Revenant is among the truly great films of 2015, and is Alejandro Gonzaezel Inarritu&apos;s greatest film... by the end you share in the characters&apos; exhaustion of heart and soul, and perhaps in their glimpse at something infinite, beautiful, and terrifying.</Comments>
 		<Genre>93</Genre>
 	</movie>
 	<movie>
@@ -21,7 +21,7 @@
 	<movie>
 		<User_code>VAL</User_code>
 		<Movie_Name>In The Heart of the Sea</Movie_Name>
-		<Comments>Warner Bros. would have been better off sticking with the film's original March release date and selling it as a horror movie.</Comments>
+		<Comments>Warner Bros. would have been better off sticking with the film&apos;s original March release date and selling it as a horror movie.</Comments>
 		<Genre>93</Genre>
 	</movie>
 	<movie>
@@ -30,5 +30,16 @@
 		<Comments>The re-invention might have been better as straight-up thriller. More story and less comedy fails would have helped.</Comments>
 		<Genre>93</Genre>
 	</movie>
-
+	<movie>
+		<User_code></User_code>
+		<Movie_Name></Movie_Name>
+		<Comments></Comments>
+		<Genre></Genre>
+	</movie>
+	<movie>
+		<User_code>gabriel</User_code>
+		<Movie_Name>111</Movie_Name>
+		<Comments>true</Comments>
+		<Genre>some folm</Genre>
+	</movie>
 </movies>
